@@ -1,6 +1,6 @@
 ## Elyndra — Plataforma de Jogos
 
-Elyndra é uma plataforma digital baseada no funcionamento da Steam, permitindo visualização, download e gerenciamento de jogos.  
+Elyndra é uma plataforma digital baseada no funcionamento da [Steam](https://store.steampowered.com/), permitindo visualização, download e gerenciamento de jogos.  
 O usuário cria uma conta, acessa um catálogo de títulos (gratuitos ou pagos) e adiciona os jogos adquiridos à sua biblioteca pessoal.
 
 ### Funcionalidades
@@ -18,6 +18,4 @@ O usuário cria uma conta, acessa um catálogo de títulos (gratuitos ou pagos) 
 ### Estrutura
 - **Página Principal:** perfil, conquistas, estatísticas, amigos e biblioteca.  
 - **Página da Loja:** catálogo, detalhes dos jogos, avaliações e acesso ao fórum de cada título.  
-- **Comunidade:** fóruns, discussões e troca de informações entre usuários.  
-
-A Elyndra adota a lógica central da Steam, integrando **biblioteca**, **loja**, **downloads** e **funções sociais** em um único sistema.
+- **Comunidade:** fóruns, discussões e troca de informações entre usuários.
