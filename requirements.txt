@@ -1,0 +1,9 @@
+asgiref==3.11.0
+colorama==0.4.6
+Django==6.0
+dnspython==2.8.0
+dotenv==0.9.9
+pymongo==4.15.5
+python-dotenv==1.2.1
+sqlparse==0.5.4
+tzdata==2025.2
