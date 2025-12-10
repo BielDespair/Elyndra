@@ -7,27 +7,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="{% static 'bootstrap-5.2.-dist/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap-5.2.1-dist/css/bootstrap.min.css' %}">
     {% block styles %}{% endblock %}
 </head>
 
 <body>
 
     <main>
-        <button class="btn">
-            Click me
-        </button>
+        <div class="container mt-4">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nome</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for nome in lista %}
+                    <tr>
+                        <th scope="row">{{ forloop.counter }}</th>
+                        <td>{{ nome }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
 
-        {% if lista %}
-        <ul>
-            {% for nome in lista %}
-            <li><a href="/loja/{{ nome}}/">{{ nome }}</a></li>
-            {% endfor %}
-        </ul>
-        {% else %}
-        <p>No polls are available.</p>
-        {% endif %}
-    </main>
+
+        </div>
 </body>
 
 </html>
