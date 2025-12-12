@@ -1,5 +1,5 @@
 from pymongo import MongoClient
-from enviroment import *
+from environment import *
 
 # 2. Criar a connection string
 connection_string = f"mongodb+srv://{DB_USER}:{DB_PASSWORD}@{DB_CLUSTER}.bqi6pbv.mongodb.net/?appName=Cluster0"
