@@ -27,10 +27,4 @@ def seed_usuarios(db):
     
     resultado: InsertManyResult = collection.insert_many(usuarios)
     
-    print("Conectado ao MongoDB!")
-    print("ID inserido:", resultado.inserted_ids)
-
-
-
-
-
+    print(f"Inserido {len(resultado.inserted_ids)} usuários")

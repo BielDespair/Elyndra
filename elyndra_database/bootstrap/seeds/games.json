@@ -1,0 +1,183 @@
+[
+  {
+    "titulo": "The Witcher 3: Wild Hunt",
+    "slug": "the-witcher-3-wild-hunt",
+    "media": {
+      "capa": "/static/games/the-witcher-3/cover.jpg",
+      "galeria": [
+        "/static/games/the-witcher-3/1.jpg",
+        "/static/games/the-witcher-3/2.jpg",
+        "/static/games/the-witcher-3/3.jpg"
+      ],
+      "trailer": [
+        "https://youtube.com/watch?v=c0i88t0Kacs"
+      ]
+    },
+    "estudio": "CD Projekt Red",
+    "publicadora": "CD Projekt",
+    "data_lancamento": "2015-05-19",
+    "descricao_curta": "RPG de ação em mundo aberto baseado na série de livros de Andrzej Sapkowski.",
+    "descricao": "The Witcher 3: Wild Hunt coloca o jogador no papel de Geralt de Rívia, um caçador de monstros em um vasto mundo aberto repleto de escolhas morais, contratos perigosos e narrativas profundas.",
+    "generos": ["RPG", "Ação", "Mundo Aberto"],
+    "tags": ["fantasia", "singleplayer", "narrativo"],
+    "idiomas": {
+      "audio": ["en-US"],
+      "legendas": ["pt-BR", "en-US", "es-ES"],
+      "interface": ["pt-BR", "en-US"]
+    },
+    "features": {
+      "multiplayer": false,
+      "conquistas": true,
+      "suporte_controle": true
+    },
+    "precos": [
+      {
+        "tipo": "PAGO",
+        "valor": 129.90,
+        "moeda": "BRL",
+        "desconto": null
+      }
+    ],
+    "requisitos": {
+      "minimos": {
+        "so": "Windows 7 64-bit",
+        "cpu": "Intel Core i5-2500K",
+        "gpu": "NVIDIA GTX 660",
+        "ram_gb": 6,
+        "armazenamento_gb": 50
+      },
+      "recomendados": {
+        "so": "Windows 10 64-bit",
+        "cpu": "Intel Core i7-3770",
+        "gpu": "NVIDIA GTX 770",
+        "ram_gb": 8,
+        "armazenamento_gb": 50
+      }
+    },
+    "tamanho_instalacao_mb": 50000,
+    "tamanho_download_mb": 45000,
+    "status": "published",
+    "visibilidade": "public"
+  },
+
+  {
+    "titulo": "Elden Ring",
+    "slug": "elden-ring",
+    "media": {
+      "capa": "/static/games/elden-ring/cover.jpg",
+      "galeria": [
+        "/static/games/elden-ring/1.jpg",
+        "/static/games/elden-ring/2.jpg"
+      ],
+      "trailer": [
+        "https://youtube.com/watch?v=E3Huy2cdih0"
+      ]
+    },
+    "estudio": "FromSoftware",
+    "publicadora": "Bandai Namco",
+    "data_lancamento": "2022-02-25",
+    "descricao_curta": "RPG de ação em mundo aberto com combate desafiador.",
+    "descricao": "Elden Ring combina a fórmula soulslike com um mundo aberto vasto, oferecendo liberdade de exploração, chefes desafiadores e uma narrativa construída de forma indireta.",
+    "generos": ["RPG", "Ação", "Mundo Aberto"],
+    "tags": ["soulslike", "difícil", "singleplayer"],
+    "idiomas": {
+      "audio": ["en-US"],
+      "legendas": ["pt-BR", "en-US"],
+      "interface": ["pt-BR", "en-US"]
+    },
+    "features": {
+      "multiplayer": true,
+      "conquistas": true,
+      "suporte_controle": true
+    },
+    "precos": [
+      {
+        "tipo": "PAGO",
+        "valor": 299.90,
+        "moeda": "BRL",
+        "desconto": null
+      }
+    ],
+    "requisitos": {
+      "minimos": {
+        "so": "Windows 10 64-bit",
+        "cpu": "Intel Core i5-8400",
+        "gpu": "NVIDIA GTX 1060",
+        "ram_gb": 12,
+        "armazenamento_gb": 60
+      },
+      "recomendados": {
+        "so": "Windows 10 64-bit",
+        "cpu": "Intel Core i7-8700K",
+        "gpu": "NVIDIA RTX 2060",
+        "ram_gb": 16,
+        "armazenamento_gb": 60
+      }
+    },
+    "tamanho_instalacao_mb": 60000,
+    "tamanho_download_mb": 50000,
+    "status": "published",
+    "visibilidade": "public"
+  },
+
+  {
+    "titulo": "Red Dead Redemption 2",
+    "slug": "red-dead-redemption-2",
+    "media": {
+      "capa": "/static/games/rdr2/cover.jpg",
+      "galeria": [
+        "/static/games/rdr2/1.jpg",
+        "/static/games/rdr2/2.jpg",
+        "/static/games/rdr2/3.jpg"
+      ],
+      "trailer": [
+        "https://youtube.com/watch?v=gmA6MrX81z4"
+      ]
+    },
+    "estudio": "Rockstar Games",
+    "publicadora": "Rockstar Games",
+    "data_lancamento": "2019-11-05",
+    "descricao_curta": "Aventura em mundo aberto ambientada no Velho Oeste.",
+    "descricao": "Red Dead Redemption 2 apresenta uma narrativa profunda e realista sobre a queda do Velho Oeste, com foco em personagens, exploração e escolhas morais.",
+    "generos": ["Ação", "Aventura", "Mundo Aberto"],
+    "tags": ["western", "narrativo", "singleplayer"],
+    "idiomas": {
+      "audio": ["en-US"],
+      "legendas": ["pt-BR", "en-US"],
+      "interface": ["pt-BR", "en-US"]
+    },
+    "features": {
+      "multiplayer": true,
+      "conquistas": true,
+      "suporte_controle": true
+    },
+    "precos": [
+      {
+        "tipo": "PAGO",
+        "valor": 249.90,
+        "moeda": "BRL",
+        "desconto": null
+      }
+    ],
+    "requisitos": {
+      "minimos": {
+        "so": "Windows 10 64-bit",
+        "cpu": "Intel Core i5-2500K",
+        "gpu": "NVIDIA GTX 770",
+        "ram_gb": 8,
+        "armazenamento_gb": 150
+      },
+      "recomendados": {
+        "so": "Windows 10 64-bit",
+        "cpu": "Intel Core i7-4770K",
+        "gpu": "NVIDIA GTX 1060",
+        "ram_gb": 12,
+        "armazenamento_gb": 150
+      }
+    },
+    "tamanho_instalacao_mb": 150000,
+    "tamanho_download_mb": 120000,
+    "status": "published",
+    "visibilidade": "public"
+  }
+]

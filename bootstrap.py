@@ -1,9 +1,19 @@
 from elyndra_database.bootstrap import *
-from elyndra_database.database import db
+from elyndra_database.database import db, client
 
-def main():    
+
+DROP_DATABASE = True
+
+
+def main():
+    if DROP_DATABASE:
+        client.drop_database("elyndra")
+        
+        
     seed_usuarios(db)
-    seed_catalogo(db)
+    seed_games(db)
+    seed_biblioteca(db)
+    
 
 if __name__ == "__main__":
     main()
