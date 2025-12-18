@@ -1,4 +1,7 @@
 ## Elyndra — Plataforma de Jogos
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)
 
 Elyndra é uma plataforma digital baseada no funcionamento da [Steam](https://store.steampowered.com/), permitindo visualização, download e gerenciamento de jogos.  
 O usuário cria uma conta, acessa um catálogo de títulos (gratuitos ou pagos) e adiciona os jogos adquiridos à sua biblioteca pessoal.
