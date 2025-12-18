@@ -1,0 +1,94 @@
+[
+  {
+    "recomendado": true,
+    "texto": "Comprei achando que ia jogar umas 10 horas. Quando vi, já estava discutindo escolhas morais com NPCs que parecem mais humanos que muita gente por aí.",
+    "minutos_jogados": 1820,
+    "idioma": "pt-BR",
+    "upvotes": 58,
+    "downvotes": 3,
+    "visivel": true,
+    "denuncias": 0
+  },
+  {
+    "recomendado": true,
+    "texto": "Geralt é feio, rabugento e perfeito. Missões secundárias melhores que a história principal de muito jogo AAA.",
+    "minutos_jogados": 940,
+    "idioma": "pt-BR",
+    "upvotes": 41,
+    "downvotes": 1,
+    "visivel": true,
+    "denuncias": 0
+  },
+  {
+    "recomendado": false,
+    "texto": "História incrível, mas o combate envelheceu mal. Se você não tiver paciência, talvez não clique.",
+    "minutos_jogados": 210,
+    "idioma": "pt-BR",
+    "upvotes": 19,
+    "downvotes": 6,
+    "visivel": true,
+    "denuncias": 0
+  },
+
+  {
+    "recomendado": true,
+    "texto": "Nunca apanhei tanto e gostei tanto ao mesmo tempo. Cada chefe é uma humilhação diferente.",
+    "minutos_jogados": 760,
+    "idioma": "pt-BR",
+    "upvotes": 64,
+    "downvotes": 5,
+    "visivel": true,
+    "denuncias": 0
+  },
+  {
+    "recomendado": true,
+    "texto": "O jogo não te explica nada e isso é parte da experiência. Explorar aqui é recompensador de verdade.",
+    "minutos_jogados": 1120,
+    "idioma": "pt-BR",
+    "upvotes": 37,
+    "downvotes": 2,
+    "visivel": true,
+    "denuncias": 0
+  },
+  {
+    "recomendado": false,
+    "texto": "Se você não gosta de sofrer, não é pra você. Simples assim.",
+    "minutos_jogados": 95,
+    "idioma": "pt-BR",
+    "upvotes": 22,
+    "downvotes": 14,
+    "visivel": true,
+    "denuncias": 0
+  },
+
+  {
+    "recomendado": true,
+    "texto": "Não é um jogo, é uma experiência. Já esqueci que estava jogando várias vezes, parecia uma série interativa.",
+    "minutos_jogados": 1560,
+    "idioma": "pt-BR",
+    "upvotes": 71,
+    "downvotes": 4,
+    "visivel": true,
+    "denuncias": 0
+  },
+  {
+    "recomendado": true,
+    "texto": "Andar a cavalo nunca foi tão bonito e tão lento. Mas quando a história engrena, vale cada minuto.",
+    "minutos_jogados": 890,
+    "idioma": "pt-BR",
+    "upvotes": 46,
+    "downvotes": 3,
+    "visivel": true,
+    "denuncias": 0
+  },
+  {
+    "recomendado": false,
+    "texto": "Tecnicamente impressionante, mas muito arrastado no começo. Não tive paciência para continuar.",
+    "minutos_jogados": 180,
+    "idioma": "pt-BR",
+    "upvotes": 28,
+    "downvotes": 9,
+    "visivel": true,
+    "denuncias": 0
+  }
+]

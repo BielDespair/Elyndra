@@ -43,7 +43,6 @@ class IdiomasSuportados(BaseModel):
     audio: List[Idioma] = []
     legendas: List[Idioma] = []
     interface: List[Idioma] = []
-    
 
 class CriarGameRequest(BaseModel):
     titulo: str

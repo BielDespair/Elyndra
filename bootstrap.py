@@ -13,6 +13,8 @@ def main():
     seed_usuarios(db)
     seed_games(db)
     seed_biblioteca(db)
+    seed_reviews(db)
+    seed_forum(db)
     
 
 if __name__ == "__main__":

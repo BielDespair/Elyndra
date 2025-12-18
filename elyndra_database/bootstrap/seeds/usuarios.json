@@ -1,0 +1,121 @@
+[
+  {
+    "username": "thales22",
+    "email": "thales@email.com",
+    "perfil": {
+      "nome_exibicao": "Thales",
+      "avatar": "/static/avatars/1.png",
+      "bio": "Gamer casual e fã de RPG.",
+      "region": "BR"
+    },
+    "configuracoes": {
+      "idioma": "pt-BR",
+      "tema": "dark",
+      "privacidade": {
+        "perfil_publico": true,
+        "biblioteca_publica": true,
+        "reviews_publicas": true
+      }
+    },
+    "relacionamentos": {
+      "amigos": [],
+      "bloqueados": []
+    },
+    "status": {
+      "online": false,
+      "banido": false
+    },
+    "created_at": "2025-01-10T18:00:00Z",
+    "updated_at": "2025-01-15T12:30:00Z"
+  },
+
+  {
+    "username": "leonardo_dev",
+    "email": "leo@email.com",
+    "perfil": {
+      "nome_exibicao": "Leonardo",
+      "avatar": "/static/avatars/2.png",
+      "bio": "Indie games, backend e performance.",
+      "region": "BR"
+    },
+    "configuracoes": {
+      "idioma": "pt-BR",
+      "tema": "dark",
+      "privacidade": {
+        "perfil_publico": true,
+        "biblioteca_publica": true,
+        "reviews_publicas": true
+      }
+    },
+    "relacionamentos": {
+      "amigos": [],
+      "bloqueados": []
+    },
+    "status": {
+      "online": true,
+      "banido": false
+    },
+    "created_at": "2025-01-11T20:10:00Z",
+    "updated_at": "2025-01-16T09:00:00Z"
+  },
+
+  {
+    "username": "marina_play",
+    "email": "marina@email.com",
+    "perfil": {
+      "nome_exibicao": "Marina",
+      "avatar": "/static/avatars/3.png",
+      "bio": "Histórias boas > gráficos.",
+      "region": "BR"
+    },
+    "configuracoes": {
+      "idioma": "pt-BR",
+      "tema": "light",
+      "privacidade": {
+        "perfil_publico": true,
+        "biblioteca_publica": true,
+        "reviews_publicas": true
+      }
+    },
+    "relacionamentos": {
+      "amigos": [],
+      "bloqueados": []
+    },
+    "status": {
+      "online": false,
+      "banido": false
+    },
+    "created_at": "2025-01-08T14:00:00Z",
+    "updated_at": "2025-01-14T21:45:00Z"
+  },
+
+  {
+    "username": "gustavo_oldschool",
+    "email": "gustavo@email.com",
+    "perfil": {
+      "nome_exibicao": "Gustavo",
+      "avatar": "/static/avatars/4.png",
+      "bio": "FPS raiz e nostalgia.",
+      "region": "BR"
+    },
+    "configuracoes": {
+      "idioma": "pt-BR",
+      "tema": "dark",
+      "privacidade": {
+        "perfil_publico": true,
+        "biblioteca_publica": false,
+        "reviews_publicas": true
+      }
+    },
+    "relacionamentos": {
+      "amigos": [],
+      "bloqueados": []
+    },
+    "status": {
+      "online": false,
+      "banido": false
+    },
+    "created_at": "2024-12-20T10:00:00Z",
+    "updated_at": "2025-01-12T18:00:00Z"
+  }
+]

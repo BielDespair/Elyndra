@@ -1,0 +1,64 @@
+[
+  {
+    "titulo": "Crash ao iniciar no Windows 11",
+    "conteudo": "Depois da última atualização o jogo simplesmente não abre. Tela preta e fecha. Mais alguém?",
+    "tags": ["BUG", "WINDOWS"],
+    "replies": [
+      { "conteudo": "Aqui resolveu atualizando o driver da NVIDIA." },
+      { "conteudo": "No meu caso foi o overlay do Discord causando conflito." }
+    ]
+  },
+  {
+    "titulo": "Build inicial para iniciantes",
+    "conteudo": "Alguém recomenda uma build boa pra começar sem sofrer tanto no early game?",
+    "tags": ["BUILD", "GAMEPLAY"],
+    "replies": [
+      { "conteudo": "Foca em sinais e alquimia no começo, ajuda bastante." }
+    ]
+  },
+  {
+    "titulo": "História principal vale a pena?",
+    "conteudo": "Curti o gameplay, mas queria saber se a história engata mais pra frente.",
+    "tags": ["STORY", "DISCUSSION"],
+    "replies": [
+      { "conteudo": "Sim, depois do primeiro arco melhora muito." },
+      { "conteudo": "As side quests são tão boas quanto a main quest." }
+    ]
+  },
+
+  {
+    "titulo": "Vale a pena começar agora?",
+    "conteudo": "Nunca joguei antes. Ainda compensa pegar hoje ou já passou o hype?",
+    "tags": ["QUESTION", "DISCUSSION"],
+    "replies": [
+      { "conteudo": "Compensa demais, o jogo é enorme e bem polido." }
+    ]
+  },
+  {
+    "titulo": "Performance no PC médio",
+    "conteudo": "Alguém rodando com GTX 1060? Queria saber como está o desempenho.",
+    "tags": ["PERFORMANCE", "FPS"],
+    "replies": [
+      { "conteudo": "Roda bem no médio, só cai FPS em áreas muito abertas." },
+      { "conteudo": "Desativar motion blur ajuda bastante." }
+    ]
+  },
+
+  {
+    "titulo": "Imersão absurda",
+    "conteudo": "Poucos jogos me deixaram tão imerso quanto esse. Mundo muito vivo.",
+    "tags": ["FEEDBACK", "GAMEPLAY"],
+    "replies": [
+      { "conteudo": "Concordo. Os detalhes fazem toda a diferença." }
+    ]
+  },
+  {
+    "titulo": "Missões secundárias são obrigatórias?",
+    "conteudo": "Dá pra seguir só a história principal ou perde muita coisa?",
+    "tags": ["QUEST", "DISCUSSION"],
+    "replies": [
+      { "conteudo": "Até dá, mas você perde o melhor conteúdo do jogo." },
+      { "conteudo": "As side quests são o ponto alto." }
+    ]
+  }
+]
