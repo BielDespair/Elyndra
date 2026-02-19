@@ -2,6 +2,19 @@ from fastapi import FastAPI, HTTPException, status
 from .models.requests import *
 from elyndra_database.connection import get_database
 from elyndra_database.repositorios.user_repository import UserRepository
+from elyndra_database.bootstrap.indexes import create_indexes
+
+from elyndra_database.bootstrap import (
+    seed_usuarios,
+    seed_games,
+    seed_biblioteca,
+    seed_reviews,
+    seed_forum
+)
+
+from elyndra_database.database import client
+from elyndra_database.bootstrap import DROP_DATABASE
+
 
 
 app = FastAPI()
@@ -16,7 +29,7 @@ async def root():
 
 @app.get("/usuarios/{id}")
 async def get_usuario(id: int):
-    usuario = usuarios.get(id)
+    usuario = user_repo.get(id)
     
     if (usuario is None):
         raise HTTPException(status_code=404, detail="Usuário não encontrado")
@@ -53,4 +66,16 @@ async def criar_game(game: CriarGameRequest):
 async def get_game(id: int):
     return {"message": f"Detalhes do game com id {id}"}
 
+
+def main():
+    if DROP_DATABASE:
+        client.drop_database("elyndra")
+
+    seed_usuarios(db)
+    seed_games(db)
+    seed_biblioteca(db)
+    seed_reviews(db)
+    seed_forum(db)
+
+    create_indexes(db)
 
