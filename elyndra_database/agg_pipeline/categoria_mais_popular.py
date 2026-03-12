@@ -9,10 +9,20 @@ A análise considera:
 - popularidade das categorias dentro da plataforma
 """
 
+import json
+
 from ..database import db
+from ..redis.redis_client import r
 
 
 def categorias_mais_populares(limit: int = 5):
+
+    cache_key = f"categorias_populares_{limit}"
+    cached = r.get(cache_key)
+    if cached:
+        print(f"Cache hit: {cache_key}")
+        return json.loads(cached)
+    
 
     """
     Retorna as categorias de jogos mais populares.
@@ -43,7 +53,7 @@ def categorias_mais_populares(limit: int = 5):
         # em um documento separado para permitir contagem.
         #
         {
-            "$unwind": "$categorias"
+            "$unwind": "$generos"
         },
 
 
@@ -58,7 +68,7 @@ def categorias_mais_populares(limit: int = 5):
         {
             "$group": {
 
-                "_id": "$categorias",
+                "_id": "$generos",
 
                 "total_jogos": {
                     "$sum": 1
@@ -117,5 +127,7 @@ def categorias_mais_populares(limit: int = 5):
     ]
 
     resultado = db["games"].aggregate(pipeline)
+    resultado = list(resultado)
+    r.set(cache_key, json.dumps(resultado))
 
     return list(resultado)

@@ -1,12 +1,8 @@
 from ..database import db;
 
-def listar_usuarios_repo() -> list[dict]:
-    collection = db["usuarios"]
-    usuarios = list(collection.find())
+from bson import json_util
 
-
-
-    for usuario in usuarios:
-        usuario["_id"] = str(usuario["_id"])
-
-    return usuarios
+def listar_usuarios_repo():
+    usuarios = list(db["usuarios"].find())
+    json_data = json_util.dumps(usuarios)
+    return json_data

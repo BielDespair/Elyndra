@@ -1,8 +1,11 @@
-from fastapi import FastAPI, HTTPException, status
+from fastapi import FastAPI, HTTPException, Response, status
 
+from elyndra_database.agg_pipeline.categoria_mais_popular import categorias_mais_populares
 from elyndra_database.forum.get_forum_posts import get_forum_posts_repo
-from elyndra_database.games.get_by_slug import get_game_by_id
+from elyndra_database.games.get_game_by_id import get_game_by_id
 from elyndra_database.games.search_games import get_games_by_category_repo
+from elyndra_database.usuarios.create_usuario import create_usuario_repo
+from elyndra_database.usuarios.get_usuario_by_id import get_usuario_repo
 from elyndra_database.usuarios.listar_usuarios import listar_usuarios_repo
 from .models.requests import *
 from elyndra_database.connection import get_database
@@ -19,13 +22,14 @@ async def root():
     return {"message": "Hello World"}
 
 
+
 @app.get("/usuarios")
 async def get_usuarios():
-    return listar_usuarios_repo()
+    return Response(content=listar_usuarios_repo(), media_type="application/json")
     
 @app.get("/usuarios/{id}")
-async def get_usuario(id: int):
-    usuario = user_repo.get(id)
+async def get_usuario(id: str):
+    usuario = get_usuario_repo(id)
     
     if (usuario is None):
         raise HTTPException(status_code=404, detail="Usuário não encontrado")
@@ -34,23 +38,20 @@ async def get_usuario(id: int):
     
 @app.post("/usuarios")
 async def criar_usuario(usuario: CriarUsuario):
-
-    # Verificar se email já existe no banco
-
+    # verificação de email
     if user_repo.find_by_email(usuario.email):
         raise HTTPException(
             status_code=status.HTTP_409_CONFLICT,
             detail="Este e-mail já está cadastrado!"
         )
 
-    result = usuario.model_dump()
-
+    usuario_dict = usuario.model_dump()
+    usuario_id = create_usuario_repo(usuario_dict)
 
     return {
         "message": "Usuário criado com sucesso",
-        "id": str(result.inserted_id)
+        "id": usuario_id
     }
-
 
 @app.post("/games")
 async def criar_game(game: CriarGameRequest):
@@ -64,7 +65,6 @@ async def get_game(id: str):
 
 @app.get("/games")
 async def listar_games():
-    print("Aqqui")
     return get_games()
 
 
@@ -78,3 +78,11 @@ def list_forum():
     posts = get_forum_posts_repo()
 
     return posts
+
+@app.get("/categorias")
+def list_forum():
+
+    categorias = categorias_mais_populares(10)
+    print(categorias)
+
+    return categorias

@@ -245,12 +245,23 @@ elif menu == "Buscar por Categoria":
 
     st.header("Buscar Jogo por Categoria")
 
-    categoria = st.text_input("Digite a categoria do jogo")
+    # Pega categorias da API
+    response = requests.get(f"{API_URL}/categorias")
+    categorias = []
+    if response.status_code == 200:
+        categorias = response.json()
 
-    if st.button("Buscar"):
+    # Dropdown de categorias
+    categorias = [c["categoria"] for c in categorias]
+    categoria_selecionada = st.selectbox(
+        "Selecione a categoria",
+        categorias
+    )
+
+    if st.button("Buscar") and categoria_selecionada:
 
         response = requests.get(
-            f"{API_URL}/games/categoria/{categoria}"
+            f"{API_URL}/games/categoria/{categoria_selecionada}"
         )
 
         if response.status_code == 200:
@@ -315,17 +326,26 @@ elif menu == "Usuários":
 
     st.header("Lista de Usuários")
 
+    # Busca usuário por ID
+    st.subheader("Buscar Usuário por ID")
+    user_id = st.text_input("Digite o ID do usuário")
+    if st.button("Buscar Usuário") and user_id:
+        response = requests.get(f"{API_URL}/usuarios/{user_id}")
+        if response.status_code == 200:
+            user = response.json()
+            st.json(user)
+        else:
+            st.error("Usuário não encontrado")
+
+    st.divider()
+
     # Botão para carregar todos os usuários
     if st.button("Carregar Usuários"):
         response = requests.get(f"{API_URL}/usuarios")
         if response.status_code == 200:
             users = response.json()
-            
-
-            # Converte para DataFrame e exibe tudo
             df = pd.DataFrame(users)
             st.dataframe(df)
-
         else:
             st.error("Erro ao carregar usuários")
 
