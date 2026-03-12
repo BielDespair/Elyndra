@@ -27,3 +27,5 @@ def create_indexes(db):
     
     db["forum"].create_index("game_id")
     db["forum"].create_index("created_at")
+
+    print("Indexes criados com sucesso")

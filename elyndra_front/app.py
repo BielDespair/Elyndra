@@ -3,9 +3,15 @@ Permitir que o usuário interaja com a API do sistema de forma visual,
 sem precisar utilizar ferramentas como Postman ou terminal.
 """
 
+import os
+
 import streamlit as st
 import requests
 import pandas as pd
+
+BASE_PATH = os.path.abspath(
+    os.path.join(os.path.dirname(__file__), "..", "elyndra_database")
+)
 
 # URL base da API.
 # A API deve estar rodando localmente com FastAPI.
@@ -23,9 +29,91 @@ st.set_page_config(
 st.title("Plataforma de Jogos Elyndra")
 
 
+if "selected_game" not in st.session_state:
+    st.session_state.selected_game = None
+
+if "games_cache" not in st.session_state:
+    st.session_state.games_cache = None
+
+def render_game_card(game):
+
+    media = game["media"]
+
+    col1, col2 = st.columns([1,2])
+
+    with col1:
+
+        capa = os.path.join(BASE_PATH, media["capa"].lstrip("/"))
+
+        if os.path.exists(capa):
+            st.image(capa)
+
+    with col2:
+
+        st.subheader(game["titulo"])
+
+        st.write(game["descricao_curta"])
+
+        if st.button("Visualizar", key=f"view_{game['_id']}"):
+            st.session_state.selected_game = game["_id"]
+            st.rerun()
+
+    st.divider()
+
+
+def render_game_details(game):
+
+    media = game["media"]
+
+    st.header(game["titulo"])
+
+    capa = os.path.join(BASE_PATH, media["capa"].lstrip("/"))
+    st.image(capa, width=400)
+
+    st.write(game["descricao"])
+
+    st.subheader("Galeria")
+
+    galeria = [
+        os.path.join(BASE_PATH, img.lstrip("/"))
+        for img in media["galeria"]
+    ]
+
+    st.image(galeria, width=200)
+
+    if media["trailer"]:
+        st.subheader("Trailer")
+        st.video(media["trailer"][0])
+
+        with st.expander("Requisitos mínimos"):
+                        r = game["requisitos"]["minimos"]
+                        st.write(f"SO: {r['so']}")
+                        st.write(f"CPU: {r['cpu']}")
+                        st.write(f"GPU: {r['gpu']}")
+                        st.write(f"RAM: {r['ram_gb']} GB")
+                        st.write(f"Armazenamento: {r['armazenamento_gb']} GB")
+
+        with st.expander("Requisitos recomendados"):
+            r = game["requisitos"]["recomendados"]
+            st.write(f"SO: {r['so']}")
+            st.write(f"CPU: {r['cpu']}")
+            st.write(f"GPU: {r['gpu']}")
+            st.write(f"RAM: {r['ram_gb']} GB")
+            st.write(f"Armazenamento: {r['armazenamento_gb']} GB")
 
 
 
+
+    if "reviews" in game:
+
+        st.subheader("Reviews")
+
+        for r in game["reviews"]:
+
+            st.write("⭐" * r["nota"])
+            st.write(r["comentario"])
+
+            st.divider()
 # MENU DE NAVEGAÇÃO
 
 
@@ -77,44 +165,84 @@ elif menu == "Lista de Games":
 
     st.header("Lista de Games")
 
-    """
-    Ao clicar no botão, a interface faz uma requisição GET
-    para o endpoint da API que retorna todos os games cadastrados.
-    """
+    if st.session_state.selected_game is None:
 
-    if st.button("Carregar Games"):
+        games = st.session_state.games_cache
 
-        response = requests.get(f"{API_URL}/games")
+        if games is None:
+            response = requests.get(f"{API_URL}/games")
+            games = response.json()
+            st.session_state.games_cache = games
+
+        for game in games:
+            render_game_card(game)
+
+    else:
+
+        game_id = st.session_state.selected_game
+
+        response = requests.get(f"{API_URL}/games/{game_id}")
 
         if response.status_code == 200:
 
-            # Converte o JSON retornado pela API em uma tabela
+            game = response.json()
+
+            render_game_details(game)
+
+            if st.button("Voltar"):
+
+                st.session_state.selected_game = None
+                st.rerun()
+
+
+
+elif menu == "Buscar Games":
+
+    st.header("Buscar Games")
+
+    titulo = st.text_input("Título")
+
+    generos = st.multiselect(
+        "Gêneros",
+        [
+            "RPG",
+            "Ação",
+            "Aventura",
+            "Mundo Aberto"
+        ]
+    )
+
+    if st.button("Buscar"):
+
+        params = {}
+
+        if titulo:
+            params["titulo"] = titulo
+
+        for g in generos:
+            params.setdefault("generos", []).append(g)
+
+        response = requests.get(
+            f"{API_URL}/games/search",
+            params=params
+        )
+
+        if response.status_code == 200:
+
             games = response.json()
-
-            df = pd.DataFrame(games)
-
-            # Exibe tabela interativa
-            st.dataframe(df)
+            for game in games:
+                render_game_card(game)
 
         else:
-            st.error("Erro ao buscar games")
-
-
-
+            st.error("Erro na busca")
 
 
 # BUSCAR POR CATEGORIA
 
 
-
 elif menu == "Buscar por Categoria":
 
     st.header("Buscar Jogo por Categoria")
-
-    """
-    Permite ao usuário filtrar jogos por categoria.
-    O valor digitado é enviado para a API.
-    """
 
     categoria = st.text_input("Digite a categoria do jogo")
 
@@ -128,9 +256,11 @@ elif menu == "Buscar por Categoria":
 
             games = response.json()
 
-            df = pd.DataFrame(games)
+            if not games:
+                st.warning("Nenhum jogo encontrado")
 
-            st.dataframe(df)
+            for game in games:
+                render_game_card(game)
 
         else:
             st.error("Categoria não encontrada")
@@ -236,32 +366,26 @@ elif menu == "Fórum":
 
     st.header("Fórum de Discussões")
 
-    """
-    Nesta seção são exibidos os tópicos do fórum do sistema.
+    response = requests.get(f"{API_URL}/forum")
 
-    Cada tópico contém:
-    - título
-    - conteúdo
-    - número de upvotes
-    """
+    if response.status_code == 200:
 
-    if st.button("Carregar tópicos do fórum"):
+        posts = response.json()
 
-        response = requests.get(f"{API_URL}/forum")
+        for post in posts:
 
-        if response.status_code == 200:
+            st.subheader(post["titulo"])
 
-            posts = response.json()
+            st.write(post["conteudo"])
 
-            for post in posts:
+            st.write("Tags:", ", ".join(post["tags"]))
 
-                st.subheader(post["titulo"])
+            st.write("Respostas")
 
-                st.write(post["conteudo"])
+            for reply in post["replies"]:
+                st.write("•", reply["conteudo"])
 
-                st.write("Upvotes:", post["upvotes"])
+            st.divider()
 
-                st.write("---")
-
-        else:
-            st.error("Erro ao carregar fórum")
+    else:
+        st.error("Erro ao carregar fórum")
