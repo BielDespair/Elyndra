@@ -8,7 +8,9 @@ def get_database():
     user = os.getenv("DB_USER")
     password = os.getenv("DB_PASSWORD")
 
-    uri = f"mongodb+srv://{user}:{password}@cluster0.mongodb.net/?retryWrites=true&w=majority"
+    uri = f"mongodb+srv://{user}:{password}@cluster0.bqi6pbv.mongodb.net/?appName=Cluster0"
 
     client = MongoClient(uri)
     return client["elyndra"]
+
+

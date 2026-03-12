@@ -1,20 +1,12 @@
 from fastapi import FastAPI, HTTPException, status
+
+from elyndra_database.forum.get_forum_posts import get_forum_posts_repo
+from elyndra_database.games.get_by_slug import get_game_by_id
+from elyndra_database.games.search_games import get_games_by_category_repo
 from .models.requests import *
 from elyndra_database.connection import get_database
 from elyndra_database.repositorios.user_repository import UserRepository
-from elyndra_database.bootstrap.indexes import create_indexes
-
-from elyndra_database.bootstrap import (
-    seed_usuarios,
-    seed_games,
-    seed_biblioteca,
-    seed_reviews,
-    seed_forum
-)
-
-from elyndra_database.database import client
-from elyndra_database.bootstrap import DROP_DATABASE
-
+from elyndra_database.games.get_games import get_games
 
 
 app = FastAPI()
@@ -63,19 +55,22 @@ async def criar_game(game: CriarGameRequest):
 
 
 @app.get("/games/{id}")
-async def get_game(id: int):
-    return {"message": f"Detalhes do game com id {id}"}
+async def get_game(id: str):
+    return get_game_by_id(id)
+
+@app.get("/games")
+async def listar_games():
+    print("Aqqui")
+    return get_games()
 
 
-def main():
-    if DROP_DATABASE:
-        client.drop_database("elyndra")
+@app.get("/games/categoria/{category}")
+async def get_games_categoria(category: str):
+    return get_games_by_category_repo(category)
 
-    seed_usuarios(db)
-    seed_games(db)
-    seed_biblioteca(db)
-    seed_reviews(db)
-    seed_forum(db)
+@app.get("/forum")
+def list_forum():
 
-    create_indexes(db)
+    posts = get_forum_posts_repo()
 
+    return posts

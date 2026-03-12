@@ -1,4 +1,5 @@
 from elyndra_database.bootstrap import *
+from elyndra_database.bootstrap.indexes import create_indexes
 from elyndra_database.database import db, client
 
 
@@ -15,6 +16,7 @@ def main():
     seed_biblioteca(db)
     seed_reviews(db)
     seed_forum(db)
+    create_indexes(db)
     
 
 if __name__ == "__main__":
