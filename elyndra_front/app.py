@@ -131,6 +131,7 @@ menu = st.sidebar.selectbox(
         "Lista de Games",
         "Buscar por Categoria",
         "Média de Avaliações",
+        "Usuários",
         "Criar Usuário",
         "Fórum"
     ]
@@ -310,7 +311,23 @@ elif menu == "Média de Avaliações":
 
 # CRIAR USUÁRIO
 
+elif menu == "Usuários":
 
+    st.header("Lista de Usuários")
+
+    # Botão para carregar todos os usuários
+    if st.button("Carregar Usuários"):
+        response = requests.get(f"{API_URL}/usuarios")
+        if response.status_code == 200:
+            users = response.json()
+            
+
+            # Converte para DataFrame e exibe tudo
+            df = pd.DataFrame(users)
+            st.dataframe(df)
+
+        else:
+            st.error("Erro ao carregar usuários")
 
 elif menu == "Criar Usuário":
 

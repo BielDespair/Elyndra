@@ -3,6 +3,7 @@ from fastapi import FastAPI, HTTPException, status
 from elyndra_database.forum.get_forum_posts import get_forum_posts_repo
 from elyndra_database.games.get_by_slug import get_game_by_id
 from elyndra_database.games.search_games import get_games_by_category_repo
+from elyndra_database.usuarios.listar_usuarios import listar_usuarios_repo
 from .models.requests import *
 from elyndra_database.connection import get_database
 from elyndra_database.repositorios.user_repository import UserRepository
@@ -18,7 +19,10 @@ async def root():
     return {"message": "Hello World"}
 
 
-
+@app.get("/usuarios")
+async def get_usuarios():
+    return listar_usuarios_repo()
+    
 @app.get("/usuarios/{id}")
 async def get_usuario(id: int):
     usuario = user_repo.get(id)
